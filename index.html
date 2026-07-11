@@ -42,14 +42,16 @@
     </div>
 
     <div class="hero__side">
-      <span class="badge"><span class="badge__dot"></span>100 Level · Software Engineering · FUTMinna</span>
+      <span class="badge"><span class="badge__dot"></span>Software Engineering · FUTMinna</span>
       <h1 class="hero__name">Daniel Enyia</h1>
       <p class="hero__role">Backend developer in training — learning to build APIs that hold up under real traffic, not just demos.</p>
       <div class="hero__actions">
         <a href="#work" class="btn btn--primary">View work</a>
         <a href="#contact" class="btn btn--ghost">Get in touch</a>
+        <a href="assets/Daniel-Enyia-Resume.pdf" class="btn btn--ghost" download>Download résumé ↓</a>
       </div>
       <p class="hero__location">📍 Abia State, Nigeria</p>
+      <p class="hero__ticker">⚡ Currently exploring: <span id="learningTicker">system design</span></p>
     </div>
   </section>
 
@@ -58,7 +60,7 @@
     <p class="section__tag" data-reveal>01 · about</p>
     <div class="about__grid" data-reveal>
       <p class="about__lede">
-        I'm a first-year Software Engineering student at the Federal University of Technology, Minna
+        I'm a Software Engineering student at the Federal University of Technology, Minna
         — and a backend developer still early in the stack, on purpose.
       </p>
       <p class="about__body">
@@ -85,22 +87,28 @@
           <span class="endpoint">/projects/the-christian-youth</span>
           <span class="status status--200"><span class="pulse-dot pulse-dot--live"></span>200 OK</span>
         </div>
-        <div class="request__body">
-          <h3>The Christian Youth</h3>
-          <p>
-            A habit-tracking companion app for faith and daily discipline — scripture reading, streaks,
-            an AI coach, prayer journaling, and paid subscription tiers with real payment flows.
-          </p>
-          <ul class="tags">
-            <li>Node.js</li>
-            <li>Express</li>
-            <li>MongoDB</li>
-            <li>REST API</li>
-            <li>Auth &amp; sessions</li>
-            <li>Subscriptions</li>
-          </ul>
-          <div class="request__links">
-            <a href="https://my-dashboard-5xg6.onrender.com" target="_blank" rel="noopener">Live app ↗</a>
+        <div class="request__layout">
+          <a class="request__preview" href="https://my-dashboard-5xg6.onrender.com" target="_blank" rel="noopener" aria-label="Open live preview of The Christian Youth">
+            <img src="assets/christian-youth-preview.jpg" alt="Screenshot of The Christian Youth app homepage" loading="lazy" width="1280" height="800">
+            <span class="request__preview-overlay">Visit live site ↗</span>
+          </a>
+          <div class="request__body">
+            <h3>The Christian Youth</h3>
+            <p>
+              A habit-tracking companion app for faith and daily discipline — scripture reading, streaks,
+              an AI coach, prayer journaling, and paid subscription tiers with real payment flows.
+            </p>
+            <ul class="tags">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>MongoDB</li>
+              <li>REST API</li>
+              <li>Auth &amp; sessions</li>
+              <li>Subscriptions</li>
+            </ul>
+            <div class="request__links">
+              <a href="https://my-dashboard-5xg6.onrender.com" target="_blank" rel="noopener">Live app ↗</a>
+            </div>
           </div>
         </div>
       </article>
@@ -112,21 +120,26 @@
           <span class="endpoint">/projects/authors-bookshelf</span>
           <span class="status status--102"><span class="pulse-dot pulse-dot--pending"></span>102 PROCESSING</span>
         </div>
-        <div class="request__body">
-          <h3>The Author's Bookshelf</h3>
-          <p>
-            An ebook storefront for independent authors — cart, checkout, Paystack payments, download-link
-            verification, lead capture, and a full admin panel for managing books, orders, and leads with
-            CSV export.
-          </p>
-          <ul class="tags">
-            <li>HTML / CSS / JS</li>
-            <li>REST API</li>
-            <li>Paystack</li>
-            <li>Admin dashboard</li>
-          </ul>
-          <div class="request__links">
-            <span class="in-progress-note">Backend in progress — no live link yet</span>
+        <div class="request__layout">
+          <div class="request__preview request__preview--placeholder" aria-hidden="true">
+            <span class="request__preview-placeholder-text">Live preview<br>coming soon</span>
+          </div>
+          <div class="request__body">
+            <h3>The Author's Bookshelf</h3>
+            <p>
+              An ebook storefront for independent authors — cart, checkout, Paystack payments, download-link
+              verification, lead capture, and a full admin panel for managing books, orders, and leads with
+              CSV export.
+            </p>
+            <ul class="tags">
+              <li>HTML / CSS / JS</li>
+              <li>REST API</li>
+              <li>Paystack</li>
+              <li>Admin dashboard</li>
+            </ul>
+            <div class="request__links">
+              <span class="in-progress-note">Backend in progress — no live link yet</span>
+            </div>
           </div>
         </div>
       </article>
@@ -154,6 +167,24 @@
     </div>
   </section>
 
+  <!-- GITHUB ACTIVITY -->
+  <section id="activity" class="activity">
+    <p class="section__tag" data-reveal>// activity</p>
+    <div class="activity__box" data-reveal>
+      <div class="request__head">
+        <span class="method method--get">GET</span>
+        <span class="endpoint">/activity/github</span>
+        <span class="status status--200"><span class="pulse-dot pulse-dot--live"></span>200 OK</span>
+      </div>
+      <div class="activity__body">
+        <a href="https://github.com/habittracker045-art" target="_blank" rel="noopener" class="activity__chart-link">
+          <img src="https://ghchart.rshah.org/e8752c/habittracker045-art" alt="Daniel Enyia's GitHub contribution graph" class="activity__chart" loading="lazy">
+        </a>
+        <p class="activity__note">Live contribution graph, pulled straight from <a href="https://github.com/habittracker045-art" target="_blank" rel="noopener">GitHub</a>.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <p class="section__tag" data-reveal>04 · contact</p>
@@ -167,8 +198,35 @@
       <p class="contact__sub">Still early in the journey — happy to learn fast, ask questions, and put in the work.</p>
       <div class="contact__links">
         <a href="mailto:habittracker045@gmail.com" class="btn btn--primary">habittracker045@gmail.com</a>
+        <button type="button" class="btn btn--ghost btn--copy" id="copyEmailBtn" data-email="habittracker045@gmail.com">
+          <span id="copyEmailLabel">Copy email</span>
+        </button>
         <a href="https://github.com/habittracker045-art" target="_blank" rel="noopener" class="btn btn--ghost">GitHub ↗</a>
       </div>
+    </div>
+
+    <div class="contact__form-box" data-reveal>
+      <div class="request__head">
+        <span class="method method--post">POST</span>
+        <span class="endpoint">/contact/message</span>
+        <span class="status status--102"><span class="pulse-dot pulse-dot--pending"></span>AWAITING INPUT</span>
+      </div>
+      <form class="contact__form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form__row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+        <div class="form__row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="_replyto" required placeholder="you@email.com">
+        </div>
+        <div class="form__row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required placeholder="What would you like to talk about?"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary form__submit">Send message ↗</button>
+        <p class="form__status" id="formStatus" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 

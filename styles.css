@@ -422,8 +422,162 @@ section {
   color: var(--muted);
   font-size: 0.9rem;
   font-family: var(--font-body);
+  margin: 0 0 0.5rem;
+}
+
+.hero__ticker {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
   margin: 0;
 }
+.hero__ticker span {
+  color: var(--orange-bright);
+  display: inline-block;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.hero__ticker span.is-swapping {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+/* ---------------------------------------------------
+   GitHub activity
+--------------------------------------------------- */
+.activity__box {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.activity__body {
+  padding: 1.6rem 1.4rem 1.8rem;
+}
+.activity__chart-link {
+  display: block;
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  padding: 1rem;
+}
+.activity__chart {
+  display: block;
+  min-width: 640px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 0 transparent);
+}
+.activity__note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-weight: 300;
+  margin: 0.9rem 0 0;
+}
+.activity__note a { color: var(--orange-bright); }
+
+/* ---------------------------------------------------
+   Copy email button
+--------------------------------------------------- */
+.btn--copy {
+  position: relative;
+  cursor: pointer;
+  font-family: var(--font-display);
+}
+.btn--copy::after {
+  content: 'Copied ✓';
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%) translateY(4px);
+  background: var(--orange);
+  color: #100600;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+.btn--copy.is-copied::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---------------------------------------------------
+   Contact form
+--------------------------------------------------- */
+.contact__form-box {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.25rem;
+}
+
+.contact__form {
+  padding: 1.8rem 1.6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.form__row label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.form__row input,
+.form__row textarea {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  resize: vertical;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form__row input::placeholder,
+.form__row textarea::placeholder {
+  color: var(--muted-2);
+}
+.form__row input:focus,
+.form__row textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(232,117,44,0.14);
+}
+
+.form__submit {
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+}
+
+.form__status {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0;
+  min-height: 1.2em;
+}
+.form__status.is-success { color: var(--orange-bright); }
+.form__status.is-error { color: #e08a6b; }
 
 /* ---------------------------------------------------
    About
@@ -501,6 +655,72 @@ section {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   flex-wrap: wrap;
+}
+
+.request__layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+}
+@media (max-width: 720px) {
+  .request__layout { grid-template-columns: 1fr; }
+}
+
+.request__preview {
+  position: relative;
+  display: block;
+  background: var(--bg-card);
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+  min-height: 180px;
+}
+@media (max-width: 720px) {
+  .request__preview { border-right: none; border-bottom: 1px solid var(--border); }
+}
+.request__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: saturate(0.9);
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), filter 0.3s ease;
+}
+.request:hover .request__preview img {
+  transform: scale(1.05);
+  filter: saturate(1.05);
+}
+.request__preview-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10,10,10,0.55);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.request:hover .request__preview-overlay {
+  opacity: 1;
+}
+
+.request__preview--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    repeating-linear-gradient(135deg, rgba(245,245,245,0.02) 0px, rgba(245,245,245,0.02) 8px, transparent 8px, transparent 16px),
+    var(--bg-card);
+}
+.request__preview-placeholder-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
 }
 
 .method {
@@ -658,8 +878,28 @@ section {
 }
 
 /* ---------------------------------------------------
-   Footer
+   Small phone tuning
 --------------------------------------------------- */
+@media (max-width: 480px) {
+  section { padding: 3.2rem 1.25rem; }
+  .nav { padding: 1.1rem 1.25rem; }
+  .nav__brand { font-size: 0.9rem; }
+  .nav__cta { padding: 0.45rem 0.9rem; font-size: 0.78rem; }
+
+  .hero__actions { flex-direction: column; align-items: stretch; }
+  .hero__actions .btn { text-align: center; }
+
+  .contact__links { flex-direction: column; align-items: stretch; }
+  .contact__links .btn { text-align: center; }
+
+  .term__body { font-size: 0.8rem; padding: 1.2rem 1rem 1.5rem; }
+  .hero__name { font-size: clamp(2rem, 9vw, 2.6rem); }
+
+  .request__head { padding: 0.8rem 1rem; }
+  .request__body, .contact__form, .activity__body { padding: 1.3rem 1.1rem 1.5rem; }
+
+  .trace { padding: 1.4rem 1.1rem; }
+}
 .footer {
   text-align: center;
   padding: 2.5rem 2rem 3rem;

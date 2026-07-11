@@ -31,11 +31,85 @@ if ('IntersectionObserver' in window && revealEls.length) {
   revealEls.forEach(el => el.classList.add('is-visible'));
 }
 
-// Terminal boot sequence
+// Currently-learning ticker
+const learningItems = ['system design', 'automated testing', 'deployment pipelines', 'PostgreSQL basics', 'API rate limiting'];
+const tickerEl = document.getElementById('learningTicker');
+if (tickerEl) {
+  let tIndex = 0;
+  setInterval(() => {
+    tickerEl.classList.add('is-swapping');
+    setTimeout(() => {
+      tIndex = (tIndex + 1) % learningItems.length;
+      tickerEl.textContent = learningItems[tIndex];
+      tickerEl.classList.remove('is-swapping');
+    }, 300);
+  }, 3200);
+}
+
+// Copy email button
+const copyBtn = document.getElementById('copyEmailBtn');
+if (copyBtn) {
+  copyBtn.addEventListener('click', async () => {
+    const email = copyBtn.getAttribute('data-email');
+    const label = document.getElementById('copyEmailLabel');
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch (err) {
+      const ta = document.createElement('textarea');
+      ta.value = email;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    copyBtn.classList.add('is-copied');
+    const original = label.textContent;
+    label.textContent = 'Copied!';
+    setTimeout(() => {
+      copyBtn.classList.remove('is-copied');
+      label.textContent = original;
+    }, 1800);
+  });
+}
+
+// Contact form submission (Formspree)
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  const statusEl = document.getElementById('formStatus');
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const action = contactForm.getAttribute('action');
+    if (!action || action.includes('YOUR_FORM_ID')) {
+      statusEl.textContent = 'Form not connected yet — email directly for now.';
+      statusEl.className = 'form__status is-error';
+      return;
+    }
+    statusEl.textContent = 'Sending…';
+    statusEl.className = 'form__status';
+    try {
+      const res = await fetch(action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        statusEl.textContent = '200 OK — message sent. I\'ll get back to you soon.';
+        statusEl.className = 'form__status is-success';
+        contactForm.reset();
+      } else {
+        statusEl.textContent = 'Something went wrong — try emailing directly.';
+        statusEl.className = 'form__status is-error';
+      }
+    } catch (err) {
+      statusEl.textContent = 'Network error — try emailing directly.';
+      statusEl.className = 'form__status is-error';
+    }
+  });
+}
 const lines = [
   { prompt: '$ whoami', output: 'Daniel Enyia' },
   { prompt: '$ role', output: 'Backend Developer (in training)' },
-  { prompt: '$ education', output: 'Software Engineering, FUTMinna — 100L' },
+  { prompt: '$ education', output: 'Software Engineering, FUTMinna' },
   { prompt: '$ location', output: 'Abia State, Nigeria' },
   { prompt: '$ status', output: 'Open to internships & backend roles' },
 ];
