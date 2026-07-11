@@ -7,14 +7,13 @@
 <meta name="description" content="Daniel Enyia — upcoming backend developer from Abia State, Nigeria. Software Engineering student at FUTMinna.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Jost:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@1,9..144,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="scanline" aria-hidden="true"></div>
-<div class="glow glow--amber" aria-hidden="true"></div>
-<div class="glow glow--teal" aria-hidden="true"></div>
+<div class="bg-base" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
 <header class="nav">
@@ -43,7 +42,7 @@
     </div>
 
     <div class="hero__side">
-      <p class="eyebrow">// 100 Level · Software Engineering · FUTMinna</p>
+      <span class="badge"><span class="badge__dot"></span>100 Level · Software Engineering · FUTMinna</span>
       <h1 class="hero__name">Daniel Enyia</h1>
       <p class="hero__role">Backend developer in training — learning to build APIs that hold up under real traffic, not just demos.</p>
       <div class="hero__actions">
@@ -84,7 +83,7 @@
         <div class="request__head">
           <span class="method method--post">POST</span>
           <span class="endpoint">/projects/the-christian-youth</span>
-          <span class="status status--200"><span class="pulse-dot pulse-dot--teal"></span>200 OK</span>
+          <span class="status status--200"><span class="pulse-dot pulse-dot--live"></span>200 OK</span>
         </div>
         <div class="request__body">
           <h3>The Christian Youth</h3>
@@ -111,7 +110,7 @@
         <div class="request__head">
           <span class="method method--post">POST</span>
           <span class="endpoint">/projects/authors-bookshelf</span>
-          <span class="status status--102"><span class="pulse-dot pulse-dot--amber"></span>102 PROCESSING</span>
+          <span class="status status--102"><span class="pulse-dot pulse-dot--pending"></span>102 PROCESSING</span>
         </div>
         <div class="request__body">
           <h3>The Author's Bookshelf</h3>
@@ -162,7 +161,7 @@
       <div class="request__head">
         <span class="method method--get">GET</span>
         <span class="endpoint">/contact</span>
-        <span class="status status--200"><span class="pulse-dot pulse-dot--teal"></span>200 OK</span>
+        <span class="status status--200"><span class="pulse-dot pulse-dot--live"></span>200 OK</span>
       </div>
       <h2 class="contact__heading">Open to backend roles, internships, and collaborations.</h2>
       <p class="contact__sub">Still early in the journey — happy to learn fast, ask questions, and put in the work.</p>
